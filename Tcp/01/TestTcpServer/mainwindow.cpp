@@ -34,6 +34,7 @@ void MainWindow::slot_new_tcpconnect()
     qDebug() << "server has connected!" << endl;
     m_socket = m_server->nextPendingConnection();
     connect(m_socket, SIGNAL(readyRead()), this, SLOT(slot_readmsg()));
+    // connect(m_socket, SIGNAL(disconnected()), this, SLOT(deleteLater()));
 }
 
 void MainWindow::slot_readmsg()

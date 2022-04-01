@@ -3,6 +3,7 @@
 
 #include <QMainWindow>
 #include <QPointer>
+#include <QTcpSocket>
 
 namespace Ui {
 class MainWindow;
@@ -19,6 +20,7 @@ public:
 
 private slots:
     void slot_readmsg();
+    void slot_display_error(QAbstractSocket::SocketError);
 
     void on_btn_send_clicked();
 
