@@ -33,13 +33,12 @@ private:
     QPointer<QTcpServer> m_server;
     QPointer<QTcpSocket> m_socket;
 
-
-    qint64 totalBytes;  //存放总大小信息
-    qint64 m_bytesReceived;  //已收到数据的大小
-    qint64 fileNameSize;  //文件名的大小信息
-    QString fileName;   //存放文件名
-    QFile *localFile;   //本地文件
-    QByteArray inBlock;   //数据缓冲区
+    qint64 m_total_bytes;           // total size of file
+    qint64 m_bytes_received;        // size of received file
+    qint64 m_filename_size;         // size of file's name
+    QString m_filename;
+    QPointer<QFile> m_localfile;    // recevied file
+    QByteArray m_inblock;           // data buffer
 };
 
 #endif // MAINWINDOW_H

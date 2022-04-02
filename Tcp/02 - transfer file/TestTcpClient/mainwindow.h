@@ -32,13 +32,13 @@ private:
 
     QPointer<QTcpSocket> m_socket;
 
-    QPointer<QFile> localFile;  //要发送的文件
-    qint64 totalBytes;  //数据总大小
-    qint64 bytesWritten;  //已经发送数据大小
-    qint64 bytesToWrite;   //剩余数据大小
-    qint64 loadSize;   //每次发送数据的大小
-    QString fileName;  //保存文件路径
-    QByteArray outBlock;  //数据缓冲区，即存放每次要发送的数据
+    QPointer<QFile> m_localfile;    // file to send
+    qint64 m_total_bytes;           // total size of file
+    qint64 m_written_bytes;         // size of file that has been sent
+    qint64 m_towrite_bytes;         // size of remaining file
+    qint64 m_load_size;             // data size of sending each time
+    QString m_filename;             // filepath(filename) of send file
+    QByteArray m_outblock;          // data buffer
 };
 
 #endif // MAINWINDOW_H
