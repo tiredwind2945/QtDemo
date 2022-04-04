@@ -98,7 +98,8 @@ void MainWindow::on_btn_sendfile_clicked()
     m_written_bytes = 0;
 
     ui->txb_msg->append(tr("Connecting...\n"));
-    m_socket->connectToHost(QHostAddress::LocalHost, 9091);
+    m_socket->connectToHost(QHostAddress::LocalHost, 9091);             // The IPv4 localhost address. Equivalent to QHostAddress("127.0.0.1").
+    // m_socket->connectToHost(QHostAddress("192.168.0.106"), 9091);    // specify a URL within a local area network
 }
 
 void MainWindow::on_btn_choosefile_clicked()

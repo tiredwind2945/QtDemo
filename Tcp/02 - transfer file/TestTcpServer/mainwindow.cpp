@@ -99,7 +99,8 @@ void MainWindow::on_btn_start_clicked()
 {
     ui->btn_start->setEnabled(false);
     m_bytes_received = 0;
-    if(!m_server->listen(QHostAddress::LocalHost, 9091))
+    // if(!m_server->listen(QHostAddress::Any, 9091))       // The IPv4 any-address. Equivalent to QHostAddress("0.0.0.0").
+    if(!m_server->listen(QHostAddress::LocalHost, 9091))    // The IPv4 localhost address. Equivalent to QHostAddress("127.0.0.1").
     {
         QString error_str = "ERROR: " + m_server->errorString();
         ui->txb_msg->append(error_str + "\n");
