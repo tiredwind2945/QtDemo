@@ -37,7 +37,6 @@ Widget::Widget(QWidget *parent) :
     renderer = vtkSmartPointer<vtkRenderer>::New();
     renderer->SetBackground(0.6, 0.6, 0.6);
     renderer->SetBackground2(0.9, 0.9, 0.9);
-    //renderer->SetBackgroundAlpha(0.2);
     renderer->GradientBackgroundOn();
     renWin->AddRenderer(renderer);
     renderer->UseHiddenLineRemovalOn();
@@ -53,11 +52,15 @@ Widget::Widget(QWidget *parent) :
     // qDebug() << "There are " << actors->GetNumberOfItems() << " actors";
     for(vtkIdType a = 0; a < actors->GetNumberOfItems(); ++a)
     {
-        vtkActor* actor = actors->GetNextActor();
-        if(actor->GetTexture())    actor->GetTexture()->InterpolateOn();
+        vtkActor *actor = actors->GetNextActor();
+        if(actor->GetTexture())
+        {
+            actor->GetTexture()->InterpolateOn();
+            actor->GetProperty()->BackfaceCullingOn();
+        }
 
-        vtkPolyData* pd = dynamic_cast<vtkPolyData*>(actor->GetMapper()->GetInput());
-        vtkPolyDataMapper* mapper = dynamic_cast<vtkPolyDataMapper*>(actor->GetMapper());
+        vtkPolyData *pd = dynamic_cast<vtkPolyData*>(actor->GetMapper()->GetInput());
+        vtkPolyDataMapper *mapper = dynamic_cast<vtkPolyDataMapper*>(actor->GetMapper());
         mapper->SetInputData(pd);
     }
 
