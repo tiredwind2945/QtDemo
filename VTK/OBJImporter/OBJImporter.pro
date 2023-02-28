@@ -1,9 +1,13 @@
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 QMAKE_CXXFLAGS += -std=c++11
 
-TARGET = OBJImporter
-TEMPLATE = app
-DEFINES += QT_DEPRECATED_WARNINGS
+TARGET 			 = OBJImporter
+TEMPLATE 		 = app
+UI_DIR      	+= .build
+RCC_DIR     	+= .build
+MOC_DIR     	+= .build
+OBJECTS_DIR 	+= .build
+DEFINES 		+= QT_DEPRECATED_WARNINGS
 
 INCLUDEPATH += /usr/local/include/vtk-9.1/
 
