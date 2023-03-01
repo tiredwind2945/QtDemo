@@ -20,8 +20,7 @@ QImage scale(const QString &imageFileName)
     return image.scaled(QSize(c_nImageSize, c_nImageSize), Qt::IgnoreAspectRatio, Qt::SmoothTransformation);
 }
 
-MainWindow::MainWindow(QWidget *parent) :
-    QMainWindow(parent),
+MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent),
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
@@ -94,7 +93,7 @@ void MainWindow::open()
     labels.clear();
 
     int dim = qSqrt(qreal(files.count())) + 1;
-    for (int i = 0; i < dim; ++i) {
+    for(int i = 0; i < dim; ++i) {
         for (int j = 0; j < dim; ++j) {
             QLabel *pLabel = new QLabel(this);
             pLabel->setFixedSize(c_nImageSize, c_nImageSize);

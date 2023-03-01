@@ -19,10 +19,7 @@ class MainWindow : public QMainWindow
 public:
     explicit MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
-
     void initInterface();
-
-protected:
 
 private slots:
     void open();                    // 打开目录，加载图片
