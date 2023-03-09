@@ -6,7 +6,7 @@ UI_DIR      	+= .build
 RCC_DIR     	+= .build
 MOC_DIR     	+= .build
 OBJECTS_DIR 	+= .build
-DEFINES += QT_DEPRECATED_WARNINGS
+DEFINES 		+= QT_DEPRECATED_WARNINGS
 
 SOURCES += \
     main.cpp \
